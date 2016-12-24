@@ -8,6 +8,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{597DE320-32E2-4B4E-80E5-33838AA160E5}"
 	ProjectSection(SolutionItems) = preProject
 		global.json = global.json
+		Readme.md = Readme.md
 	EndProjectSection
 EndProject
 Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "HardHat", "src\HardHat\HardHat.xproj", "{B4448494-6C80-4BDA-890C-D8900B33FE17}"

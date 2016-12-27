@@ -15,9 +15,9 @@ In short this allows:
 
 todo:
 
-CSP
-ie NoOpen
-don't sniff mime type
-XSS protection
-disable referer
+* CSP
+* ie NoOpen
+* don't sniff mime type
+* XSS protection
+* disable referer
 

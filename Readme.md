@@ -13,6 +13,8 @@ In short this allows:
             app.DnsPrefetch(allow: false); //turn off dns prefetch to keep privacy of users on site
             app.AddFrameGuard(new FrameGuardOptions(FrameGuardOptions.FrameGuard.SAMEORIGIN)); //prevent content from being loaded in an iframe unless its within the same origin
             app.UseHsts(maxAge: 5000, includeSubDomains: true, preload: false); //enforce hsts
+            app.AddReferrerPolicy(ReferrerPolicy.NoReferrer);
+            app.AddIENoOpen();
             ...
             app.UseMvc(routes =>
             {
@@ -30,8 +32,6 @@ In short this allows:
 todo:
 
 * CSP
-* ie NoOpen
 * don't sniff mime type
 * XSS protection
-* disable referer
 

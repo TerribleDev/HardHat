@@ -50,7 +50,8 @@ namespace HardHat.Example
             app.AddFrameGuard(new FrameGuardOptions(FrameGuardOptions.FrameGuard.SAMEORIGIN));
             app.UseHsts(maxAge: 5000, includeSubDomains: true, preload: false);
             app.UseStaticFiles();
-
+            app.AddReferrerPolicy(ReferrerPolicy.NoReferrer);
+            app.AddIENoOpen();
             app.UseMvc(routes =>
             {
                 routes.MapRoute(

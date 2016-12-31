@@ -1,3 +1,5 @@
+<img src="Hat.png" width="350px"/>
+
 HardHat adds various headers to help protect your site from vulnerablities.
 
 

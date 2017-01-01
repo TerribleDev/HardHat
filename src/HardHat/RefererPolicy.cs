@@ -3,11 +3,11 @@ using System.Threading.Tasks;
 
 namespace HardHat
 {
-    public class ReferrerPolicyMiddlewear
+    public class ReferrerPolicyMiddleware
     {
         private readonly RequestDelegate _next;
         private readonly ReferrerPolicy policy;
-        public ReferrerPolicyMiddlewear(RequestDelegate next, ReferrerPolicy policy)
+        public ReferrerPolicyMiddleware(RequestDelegate next, ReferrerPolicy policy)
         {
             this.policy = policy;
             _next = next;

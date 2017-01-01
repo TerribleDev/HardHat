@@ -45,7 +45,7 @@ namespace Microsoft.AspNetCore.Builder
         /// <param name="app"></param>
         /// <param name="policy">A referrer policy. You can read more about them here: https://www.w3.org/TR/referrer-policy/#referrer-policies </param>
         /// <returns></returns>
-        public static IApplicationBuilder UseReferrerPolicy(this IApplicationBuilder app, ReferrerPolicy policy) => app.UseMiddleware<ReferrerPolicyMiddlewear>(policy);
+        public static IApplicationBuilder UseReferrerPolicy(this IApplicationBuilder app, ReferrerPolicy policy) => app.UseMiddleware<ReferrerPolicyMiddleware>(policy);
         /// <summary>
         /// This adds the X-XSS-Protection header which allows the browser to detect and block some xss attacks
         /// </summary>

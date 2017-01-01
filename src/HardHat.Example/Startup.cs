@@ -49,7 +49,7 @@ namespace HardHat.Example
             app.UseIENoOpen();
             app.UseNoMimeSniff();
             app.UseCrossSiteScriptingFilters();
-
+            app.UseServerHeader("PoopyServer");
             app.UseStaticFiles();
             app.UseMvc(routes =>
             {

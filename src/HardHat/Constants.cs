@@ -17,7 +17,7 @@
         internal const string OneModeEqualsBlock = "1; mode=block";
         internal const string Zero = "0";
         internal const string UserAgent = "User-Agent";
-
+        internal const string ServerHeader = "Server";
 
         internal static class Referrers
         {

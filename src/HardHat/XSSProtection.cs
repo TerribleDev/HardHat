@@ -32,7 +32,7 @@ namespace HardHat
                 }
             }
             context.Response.Headers[Constants.XXSProtection] = result;
-            return _next.Invoke(context);
+            return _next?.Invoke(context);
         }
     }
 }

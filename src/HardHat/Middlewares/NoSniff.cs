@@ -1,7 +1,7 @@
 ﻿using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 
-namespace HardHat
+namespace HardHat.Middlewares
 {
     public class NoSniff
     {
@@ -14,7 +14,7 @@ namespace HardHat
         public Task Invoke(HttpContext context)
         {
             context.Response.Headers[Constants.XContentTypeOptions] = Constants.NoSniff;
-            return _next.Invoke(context);
+            return _next?.Invoke(context);
         }
     }
 }

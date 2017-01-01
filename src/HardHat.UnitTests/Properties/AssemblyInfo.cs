@@ -7,7 +7,7 @@ using System.Runtime.InteropServices;
 // associated with an assembly.
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("HardHat")]
+[assembly: AssemblyProduct("HardHat.UnitTests")]
 [assembly: AssemblyTrademark("")]
 
 // Setting ComVisible to false makes the types in this assembly not visible
@@ -16,5 +16,4 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("b4448494-6c80-4bda-890c-d8900b33fe17")]
-[assembly: InternalsVisibleTo("HardHat.UnitTests")]
+[assembly: Guid("5fce3103-91ed-4708-921b-2e881d67ad53")]

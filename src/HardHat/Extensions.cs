@@ -1,5 +1,5 @@
 ﻿using HardHat;
-
+using HardHat.Middlewares;
 namespace Microsoft.AspNetCore.Builder
 {
     public static class Extensions
@@ -53,5 +53,20 @@ namespace Microsoft.AspNetCore.Builder
         /// <param name="addOldIE">turning this on for ie8 and 9 can actually cause worse vulnerabilities. By default we do not add old IE, but you can override this behavior</param>
         /// <returns></returns>
         public static IApplicationBuilder UseCrossSiteScriptingFilters(this IApplicationBuilder app, bool addOldIE = false) => app.UseMiddleware<XSSProtection>(addOldIE);
+
+        /// <summary>
+        /// change or remove the server header.
+        /// </summary>
+        /// <param name="app"></param>
+        /// <param name="header">Set this to null or empty string to remove the header entirely</param>
+        /// <returns></returns>
+        public static IApplicationBuilder UseServerHeader(this IApplicationBuilder app, string header = "")
+        {
+            if (string.IsNullOrWhiteSpace(header))
+            {
+                return app.UseMiddleware<ServerHeader>(string.Empty);
+            }
+            return app.UseMiddleware<ServerHeader>(header);
+        }
     }
 }

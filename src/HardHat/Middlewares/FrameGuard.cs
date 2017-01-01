@@ -2,7 +2,7 @@
 using System;
 using System.Threading.Tasks;
 
-namespace HardHat
+namespace HardHat.Middlewares
 {
     public class FrameGuard
     {
@@ -28,11 +28,7 @@ namespace HardHat
             {
                 context.Response.Headers[Constants.FrameGuardHeader] = options.domain;
             }
-            else
-            {
-                throw new ArgumentException("Frameguard, or domain not set");
-            }
-            return next.Invoke(context);
+            return next?.Invoke(context);
         }
     }
 }

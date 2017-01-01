@@ -2,7 +2,7 @@
 using System.Text;
 using System.Threading.Tasks;
 
-namespace HardHat
+namespace HardHat.Middlewares
 {
     public class Hsts
     {
@@ -30,7 +30,7 @@ namespace HardHat
         public Task Invoke(HttpContext context)
         {
             context.Response.Headers[Constants.StrictTransportSecurity] = value;
-            return _next.Invoke(context);
+            return _next?.Invoke(context);
         }
     }
 }

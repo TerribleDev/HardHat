@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using System.Threading.Tasks;
 
-namespace HardHat
+namespace HardHat.Middlewares
 {
     public class IENoOpen
     {
@@ -14,7 +14,7 @@ namespace HardHat
         public Task Invoke(HttpContext context)
         {
             context.Response.Headers[Constants.DowloadOptions] = Constants.NoOpen;
-            return _next.Invoke(context);
+            return _next?.Invoke(context);
         }
     }
 }

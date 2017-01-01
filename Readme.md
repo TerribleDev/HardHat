@@ -2,7 +2,7 @@
 
 <img src="Hat.png" width="350px"/>
 
-HardHat adds various headers to help protect your site from vulnerablities.
+HardHat is a set of .net core middleware that adds various headers to help protect your site from vulnerablities. Inspired by [helmetJS](https://helmetjs.github.io). Currently in beta, Content Security Policy, Unit tests, documentation due before 1.0.0. Netherless this should work fine.
 
 
 In short this allows:
@@ -14,11 +14,14 @@ In short this allows:
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
         {
             ...
-            app.DnsPrefetch(allow: false); //turn off dns prefetch to keep privacy of users on site
-            app.AddFrameGuard(new FrameGuardOptions(FrameGuardOptions.FrameGuard.SAMEORIGIN)); //prevent content from being loaded in an iframe unless its within the same origin
-            app.UseHsts(maxAge: 5000, includeSubDomains: true, preload: false); //enforce hsts
-            app.AddReferrerPolicy(ReferrerPolicy.NoReferrer);
-            app.AddIENoOpen();
+            app.UseDnsPrefetch(allow: false); //turn off dns prefetch to protect the privacy of users
+            app.UseFrameGuard(new FrameGuardOptions(FrameGuardOptions.FrameGuard.SAMEORIGIN)); //prevent clickjacking, by not allowing your site to be rendered in an iframe
+            //  app.UseFrameGuard(new FrameGuardOptions("otherdomain.com")); or allow iframes on another domain
+            app.UseHsts(maxAge: 5000, includeSubDomains: true, preload: false); //tell browsers to always use https for the next 5000 seconds
+            app.UseReferrerPolicy(ReferrerPolicy.NoReferrer); // do not include the referrer header when linking away from your site to protect your users privacy
+            app.UseIENoOpen(); // don't allow old ie to open files in the context of your site
+            app.UseNoMimeSniff(); // prevent MIME sniffing
+            app.UseCrossSiteScriptingFilters(); //add headers to have the browsers auto detect and block some xss attacks
             ...
             app.UseMvc(routes =>
             {
@@ -32,10 +35,4 @@ In short this allows:
 
 
 ```
-
-todo:
-
-* CSP
-* don't sniff mime type
-* XSS protection
 

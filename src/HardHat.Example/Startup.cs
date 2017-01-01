@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Builder;
+﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -46,12 +42,15 @@ namespace HardHat.Example
             {
                 app.UseExceptionHandler("/Home/Error");
             }
-            app.DnsPrefetch(allow: false);
-            app.AddFrameGuard(new FrameGuardOptions(FrameGuardOptions.FrameGuard.SAMEORIGIN));
+            app.UseDnsPrefetch(allow: false);
+            app.UseFrameGuard(new FrameGuardOptions(FrameGuardOptions.FrameGuard.SAMEORIGIN));
             app.UseHsts(maxAge: 5000, includeSubDomains: true, preload: false);
+            app.UseReferrerPolicy(ReferrerPolicy.NoReferrer);
+            app.UseIENoOpen();
+            app.UseNoMimeSniff();
+            app.UseCrossSiteScriptingFilters();
+
             app.UseStaticFiles();
-            app.AddReferrerPolicy(ReferrerPolicy.NoReferrer);
-            app.AddIENoOpen();
             app.UseMvc(routes =>
             {
                 routes.MapRoute(

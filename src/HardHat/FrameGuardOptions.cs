@@ -1,11 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace HardHat
 {
-    public struct FrameGuardOptions
+    public class FrameGuardOptions
     {
         internal readonly string domain;
         internal readonly FrameGuard? guard;

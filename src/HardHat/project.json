@@ -1,12 +1,12 @@
 ﻿{
-    "version": "1.0.0-beta-2",
+    "version": "1.0.0-beta-2-final",
     "description": ".Net core Middleware, Add various headers to help secure your site",
     "authors": [ "Tommy Parnell" ],
     "packOptions": {
         "tags": [ "xss", "clickjack", "clickjacking", "security", ".net core", "Middleware", "core" ],
         "projectUrl": "https://github.com/TerribleDev/HardHat",
         "licenseUrl": "https://opensource.org/licenses/MIT",
-        "iconUrl": "https://github.com/TerribleDev/HardHat/blob/master/Hat.png"
+        "iconUrl": "https://media.githubusercontent.com/media/TerribleDev/HardHat/master/Hat.png"
     },
     "dependencies": {
         "NETStandard.Library": "1.6.0",

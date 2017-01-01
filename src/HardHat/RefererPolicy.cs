@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Http;
 using System.Threading.Tasks;
+using System;
 
 namespace HardHat
 {
@@ -11,6 +12,10 @@ namespace HardHat
         {
             this.policy = policy;
             _next = next;
+            if(policy == null)
+            {
+                throw new ArgumentNullException(nameof(policy));
+            }
         }
 
         public Task Invoke(HttpContext context)
@@ -19,7 +24,7 @@ namespace HardHat
             return _next.Invoke(context);
         }
     }
-    public struct ReferrerPolicy
+    public class ReferrerPolicy
     {
         internal readonly string Policy;
         internal ReferrerPolicy(string policy)

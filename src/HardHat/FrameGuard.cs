@@ -12,6 +12,10 @@ namespace HardHat
         {
             this.next = next;
             this.options = options;
+            if(options == null)
+            {
+                throw new ArgumentNullException(nameof(options));
+            }
         }
 
         public Task Invoke(HttpContext context)

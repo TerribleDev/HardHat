@@ -20,7 +20,7 @@ In short this allows:
             app.UseHsts(maxAge: 5000, includeSubDomains: true, preload: false); //tell browsers to always use https for the next 5000 seconds
             app.UseReferrerPolicy(ReferrerPolicy.NoReferrer); // do not include the referrer header when linking away from your site to protect your users privacy
             app.UseIENoOpen(); // don't allow old ie to open files in the context of your site
-            app.UseNoMimeSniff(); // prevent MIME sniffing
+            app.UseNoMimeSniff(); // prevent MIME sniffing https://en.wikipedia.org/wiki/Content_sniffing
             app.UseCrossSiteScriptingFilters(); //add headers to have the browsers auto detect and block some xss attacks
             ...
             app.UseMvc(routes =>

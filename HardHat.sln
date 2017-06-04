@@ -1,21 +1,20 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio 15
+VisualStudioVersion = 15.0.26430.6
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{2213F1A9-1E90-473E-A04F-F089BBC16098}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{597DE320-32E2-4B4E-80E5-33838AA160E5}"
 	ProjectSection(SolutionItems) = preProject
-		global.json = global.json
 		Readme.md = Readme.md
 	EndProjectSection
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "HardHat", "src\HardHat\HardHat.xproj", "{B4448494-6C80-4BDA-890C-D8900B33FE17}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HardHat", "src\HardHat\HardHat.csproj", "{B4448494-6C80-4BDA-890C-D8900B33FE17}"
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "HardHat.Example", "src\HardHat.Example\HardHat.Example.xproj", "{1DEE94FD-A3D3-4E46-868D-1BB9028FEC86}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HardHat.Example", "src\HardHat.Example\HardHat.Example.csproj", "{1DEE94FD-A3D3-4E46-868D-1BB9028FEC86}"
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "HardHat.UnitTests", "src\HardHat.UnitTests\HardHat.UnitTests.xproj", "{5FCE3103-91ED-4708-921B-2E881D67AD53}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HardHat.UnitTests", "src\HardHat.UnitTests\HardHat.UnitTests.csproj", "{5FCE3103-91ED-4708-921B-2E881D67AD53}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

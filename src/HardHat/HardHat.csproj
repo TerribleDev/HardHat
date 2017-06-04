@@ -1,0 +1,20 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <Description>.Net core Middleware, Add various headers to help secure your site</Description>
+    <Authors>Tommy Parnell</Authors>
+    <TargetFramework>netstandard1.6</TargetFramework>
+    <AssemblyName>HardHat</AssemblyName>
+    <PackageId>HardHat</PackageId>
+    <PackageTags>xss;clickjack;clickjacking;security;.net core;Middleware;core</PackageTags>
+    <PackageIconUrl>https://media.githubusercontent.com/media/TerribleDev/HardHat/master/Hat.png</PackageIconUrl>
+    <PackageProjectUrl>https://github.com/TerribleDev/HardHat</PackageProjectUrl>
+    <PackageLicenseUrl>https://opensource.org/licenses/MIT</PackageLicenseUrl>
+    <PackageTargetFallback>$(PackageTargetFallback);dnxcore50</PackageTargetFallback>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Http.Abstractions" Version="1.0.2" />
+  </ItemGroup>
+
+</Project>

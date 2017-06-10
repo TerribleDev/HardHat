@@ -2,7 +2,7 @@
 
 <img src="Hat.png" width="350px"/>
 
-HardHat is a set of .net core middleware that adds various headers to help protect your site from vulnerablities. Inspired by [helmetJS](https://helmetjs.github.io). Currently in beta, Content Security Policy, Unit tests, documentation due before 1.0.0. Netherless this should work fine.
+HardHat is a set of .net core middleware that adds various headers to help protect your site from vulnerabilities. Inspired by [helmetJS](https://helmetjs.github.io). Currently in beta, Content Security Policy, Unit tests, documentation due before 1.0.0. Even still, this should work fine.
 
 
 In short this allows:
@@ -22,6 +22,14 @@ In short this allows:
             app.UseIENoOpen(); // don't allow old ie to open files in the context of your site
             app.UseNoMimeSniff(); // prevent MIME sniffing https://en.wikipedia.org/wiki/Content_sniffing
             app.UseCrossSiteScriptingFilters(); //add headers to have the browsers auto detect and block some xss attacks
+            app.UseContentSecurityPolicy(
+                new ContentSecurityPolicyBuilder()
+                .WithDefaultSource(CSPConstants.Self)
+                .WithImageSource("http://images.mysite.com")
+                .WithFontSource(CSPConstants.Self)
+                .WithFrameAncestors(CSPConstants.None)
+                .BuildPolicy()
+               );
             ...
             app.UseMvc(routes =>
             {

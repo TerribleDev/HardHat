@@ -55,6 +55,14 @@ namespace Microsoft.AspNetCore.Builder
         public static IApplicationBuilder UseCrossSiteScriptingFilters(this IApplicationBuilder app, bool addOldIE = false) => app.UseMiddleware<XSSProtection>(addOldIE);
 
         /// <summary>
+        /// The HTTP Content-Security-Policy response header allows web site administrators to control resources the user agent is allowed to load for a given page. With a few exceptions, policies mostly involve specifying server origins and script endpoints. This helps guard against cross-site scripting attacks
+        /// </summary>
+        /// <param name="app"></param>
+        /// <param name="policy"></param>
+        /// <returns></returns>
+        public static IApplicationBuilder UseContentSecurityPolicy(this IApplicationBuilder app, ContentSecurityPolicy policy) => app.UseMiddleware<ContentSecurityPolicyMiddleware>(policy);
+
+        /// <summary>
         /// change or remove the server header.
         /// </summary>
         /// <param name="app"></param>

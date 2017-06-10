@@ -14,6 +14,7 @@ namespace HardHat.UnitTests
             Assert.Throws<ArgumentNullException>(() => new FrameGuard(null, null));
             Assert.Throws<ArgumentNullException>(() => new ReferrerPolicyMiddleware(null, null));
             Assert.Throws<ArgumentNullException>(() => new FrameGuardOptions(string.Empty));
+            Assert.Throws<ArgumentNullException>(() => new ContentSecurityPolicyMiddleware(null, null));
         }
     }
 }

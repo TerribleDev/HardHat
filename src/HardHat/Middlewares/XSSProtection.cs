@@ -5,7 +5,7 @@ using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 
-namespace HardHat
+namespace HardHat.Middlewares
 {
     public class XSSProtection
     {

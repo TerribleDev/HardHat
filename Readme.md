@@ -2,7 +2,7 @@
 
 <img src="Hat.png" width="350px"/>
 
-HardHat is a set of .net core middleware that adds various headers to help protect your site from vulnerabilities. Inspired by [helmetJS](https://helmetjs.github.io). Currently in beta, Content Security Policy, Unit tests, documentation due before 1.0.0. Even still, this should work fine.
+HardHat is a set of .net core middleware that adds various headers to help protect your site from vulnerabilities. Inspired by [helmetJS](https://helmetjs.github.io). Currently in beta, documentation due before 1.0.0. Even still, this should work fine.
 
 
 In short this allows:

@@ -1,12 +1,12 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <Description>.Net core Middleware, Add various headers to help secure your site</Description>
+    <Description>.Net core Middleware, Add various headers to help secure your site. Disable XSS attacks with Content Security Policies, and make sure browsers do not mime sniff</Description>
     <Authors>Tommy Parnell</Authors>
     <TargetFramework>netstandard1.6</TargetFramework>
     <AssemblyName>HardHat</AssemblyName>
     <PackageId>HardHat</PackageId>
-    <PackageTags>xss;clickjack;clickjacking;security;.net core;Middleware;core</PackageTags>
+    <PackageTags>xss;clickjack;clickjacking;security;.net core;Middleware;core;Content Security Policy;CSP</PackageTags>
     <PackageIconUrl>https://media.githubusercontent.com/media/TerribleDev/HardHat/master/Hat.png</PackageIconUrl>
     <PackageProjectUrl>https://github.com/TerribleDev/HardHat</PackageProjectUrl>
     <PackageLicenseUrl>https://opensource.org/licenses/MIT</PackageLicenseUrl>

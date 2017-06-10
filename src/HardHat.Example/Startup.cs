@@ -43,14 +43,29 @@ namespace HardHat.Example
                 app.UseExceptionHandler("/Home/Error");
             }
             app.UseDnsPrefetch(allow: false);
-            app.UseFrameGuard(new FrameGuardOptions(FrameGuardOptions.FrameGuard.SAMEORIGIN));
+            app.UseFrameGuard(new FrameGuardOptions("http://amazon.com"));
             app.UseHsts(maxAge: 5000, includeSubDomains: true, preload: false);
             app.UseReferrerPolicy(ReferrerPolicy.NoReferrer);
             app.UseIENoOpen();
             app.UseNoMimeSniff();
             app.UseCrossSiteScriptingFilters();
-            app.UseServerHeader("PoopyServer");
+            app.UseContentSecurityPolicy(
+                new ContentSecurityPolicyBuilder()
+                .WithDefaultSource(CSPConstants.Self)
+                .WithImageSource("http://images.mysite.com")
+                .WithFontSource(CSPConstants.Self)
+                .WithFrameAncestors(CSPConstants.None)
+                .WithMediaSource(CSPConstants.Schemes.MediaStream)
+                .BuildPolicy()
+               );
             app.UseStaticFiles();
+
+            new ContentSecurityPolicyBuilder()
+                .WithFontSource(CSPConstants.Self)
+                .WithImageSource("https://example.com")
+                .WithSandBox(SandboxOption.AllowForms);
+            
+
             app.UseMvc(routes =>
             {
                 routes.MapRoute(

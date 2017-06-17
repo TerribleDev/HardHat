@@ -53,5 +53,5 @@ In short this allows:
 ## Getting started
 
 
-* Install the nuget package `Install-Package HardHat -Pre`
+* Install the nuget package `Install-Package HardHat`
 * Add the middleware you desire to your configure block.

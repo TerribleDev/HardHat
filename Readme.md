@@ -22,7 +22,7 @@ In short this allows:
             app.UseIENoOpen(); // don't allow old ie to open files in the context of your site
             app.UseNoMimeSniff(); // prevent MIME sniffing https://en.wikipedia.org/wiki/Content_sniffing
             app.UseCrossSiteScriptingFilters(); //add headers to have the browsers auto detect and block some xss attacks
-            app.UseContentSecurityPolicy(
+            app.UseContentSecurityPolicy( // Provide a security policy so only content can come from trusted sources
                 new ContentSecurityPolicyBuilder()
                 .WithDefaultSource(CSPConstants.Self)
                 .WithImageSource("http://images.mysite.com")
@@ -30,6 +30,10 @@ In short this allows:
                 .WithFrameAncestors(CSPConstants.None)
                 .BuildPolicy()
                );
+            app.UseHpkp(maxAge: 5184000, keys: new List<PublicKeyPin>{ // Prevent man in the middle attacks by providing a hash of your public keys
+                new PublicKeyPin("cUPcTAZWKaASuYWhhneDttWpY3oBAkE3h2+soZS7sWs=", HpKpCrypto.sha256),
+                new PublicKeyPin("M8HztCzM3elUxkcjR2S5P4hhyBNf6lHkmjAHKhpGPWE=", HpKpCrypto.sha256)
+            }, includeSubDomains: true, reportUri: "/report", reportOnly: false);
             ...
             app.UseMvc(routes =>
             {

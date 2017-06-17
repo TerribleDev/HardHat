@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using System.Collections.Generic;
 
 namespace HardHat.Example
 {
@@ -58,13 +59,13 @@ namespace HardHat.Example
                 .WithMediaSource(CSPConstants.Schemes.MediaStream)
                 .BuildPolicy()
                );
-            app.UseStaticFiles();
+            // use public key pinning
+            app.UseHpkp(maxAge: 5184000, keys: new List<PublicKeyPin>{
+                new PublicKeyPin("cUPcTAZWKaASuYWhhneDttWpY3oBAkE3h2+soZS7sWs=", HpKpCrypto.sha256),
+                new PublicKeyPin("M8HztCzM3elUxkcjR2S5P4hhyBNf6lHkmjAHKhpGPWE=", HpKpCrypto.sha256)
+            }, includeSubDomains: true, reportUri: "/report", reportOnly: false);
 
-            new ContentSecurityPolicyBuilder()
-                .WithFontSource(CSPConstants.Self)
-                .WithImageSource("https://example.com")
-                .WithSandBox(SandboxOption.AllowForms);
-            
+            app.UseStaticFiles();
 
             app.UseMvc(routes =>
             {

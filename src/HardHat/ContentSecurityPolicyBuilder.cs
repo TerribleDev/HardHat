@@ -183,7 +183,7 @@ namespace HardHat
         /// <summary>
         /// 	Defines valid MIME types for plugins invoked via <object> and <embed>. To load an <applet> you must specify application/x-java-applet. 
         /// </summary>
-        /// <param name="mimeTypes"></param>
+        /// <param name="mimeTypes">valid mime types</param>
         /// <returns></returns>
         public ContentSecurityPolicyBuilder WithPluginTypes(params string[] mimeTypes)
         {
@@ -194,7 +194,11 @@ namespace HardHat
             Policy.PluginTypes.UnionWith(mimeTypes);
             return this;
         }
-
+        /// <summary>
+        ///  sandbox directive enables a sandbox for the requested resource similar to the <iframe> sandbox attribute. It applies restrictions to a page's actions including preventing popups, preventing the execution of plugins and scripts, and enforcing a same-origin policy.
+        /// </summary>
+        /// <param name="sandboxOption"></param>
+        /// <returns></returns>
         public ContentSecurityPolicyBuilder WithSandBox(BaseSandboxOption sandboxOption)
         {
             Policy.Sandbox = sandboxOption ?? throw new ArgumentNullException(nameof(sandboxOption));

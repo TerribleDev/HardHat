@@ -20,6 +20,8 @@
         internal const string UserAgent = "User-Agent";
         internal const string ServerHeader = "Server";
         internal const string semicolon = ";";
+        internal const string HpKpHeader = "Public-Key-Pins";
+        internal const string HpKpHeaderReportOnly = "Public-Key-Pins-Report-Only";
         internal static class Referrers
         {
             internal const string NoReferrer = "no-referrer";

@@ -63,7 +63,9 @@ namespace HardHat
 
 
         public string ReportUri = string.Empty;
-
+        /// <summary>
+        /// Reports violations that would have occurred. Does not actively enforce the Content Policy
+        /// </summary>
         public bool OnlySendReport { get; set;  } = false;
 
     }

@@ -1,5 +1,7 @@
 # Hard Hat
 
+[![Build status](https://ci.appveyor.com/api/projects/status/orm7sjpwxde03pbj/branch/master?svg=true)](https://ci.appveyor.com/project/tparnell8/hardhat/branch/master)
+
 <img src="Hat.png" width="350px"/>
 
 HardHat is a set of .net core middleware that adds various headers to help protect your site from vulnerabilities. Inspired by [helmetJS](https://helmetjs.github.io). We have [some docs](docs/Readme.md) they are still a work in progress, so please feel free to submit changes to them.

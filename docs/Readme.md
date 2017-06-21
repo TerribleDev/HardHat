@@ -1,6 +1,6 @@
 ## Index
 
-Hard hat is essentially a group of 10+ individual middleware that help you improve the security of your aspnet core based applications.
+Hard hat is essentially a group of individual middleware that help you improve the security of your aspnet core based applications.
 
 Each middleware has a seperate readme file. These docs were inspired by helmetjs.
 

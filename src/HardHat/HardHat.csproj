@@ -11,10 +11,21 @@
     <PackageProjectUrl>https://github.com/TerribleDev/HardHat</PackageProjectUrl>
     <PackageLicenseUrl>https://opensource.org/licenses/MIT</PackageLicenseUrl>
     <PackageTargetFallback>$(PackageTargetFallback);dnxcore50</PackageTargetFallback>
+    <SourceLinkServerType>GitHub</SourceLinkServerType>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Http.Abstractions" Version="1.0.2" />
+    <PackageReference Include="SourceLink.Create.CommandLine" Version="2.4.0" PrivateAssets="All" /> 
   </ItemGroup>
+
+  <PropertyGroup>
+    <TargetsForTfmSpecificContentInPackage>$(TargetsForTfmSpecificContentInPackage);IncludePDBsInPackage</TargetsForTfmSpecificContentInPackage>
+  </PropertyGroup>
+  <Target Name="IncludePDBsInPackage" Condition="'$(IncludeBuildOutput)' != 'false'">
+    <ItemGroup>
+      <TfmSpecificPackageFile Include="$(OutputPath)\$(AssemblyName).pdb" PackagePath="lib\$(TargetFramework)" />
+    </ItemGroup>
+  </Target>
 
 </Project>

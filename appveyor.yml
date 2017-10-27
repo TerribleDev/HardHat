@@ -9,6 +9,10 @@ build_script:
         {
           dotnet pack src\HardHat\HardHat.csproj --configuration Release --output ..\..\output /p:Version=$env:APPVEYOR_REPO_TAG_NAME
         }
+        else
+        {
+          dotnet pack src\HardHat\HardHat.csproj --configuration Release --output ..\..\output /p:Version=0.0.1-build-$env:APPVEYOR_BUILD_NUMBER
+        }
 test_script:
 - ps: dotnet test src\HardHat.UnitTests\HardHat.UnitTests.csproj
 artifacts:

@@ -91,6 +91,17 @@ namespace Microsoft.AspNetCore.Builder
         public static IApplicationBuilder UseHpkp(this IApplicationBuilder app, ulong maxAge, ICollection<PublicKeyPin> keys, bool includeSubDomains = false, string reportUri = "", bool reportOnly = false) => app.UseMiddleware<Hpkp>(maxAge, keys, includeSubDomains, reportUri, reportOnly);
 
         /// <summary>
+        /// NOTE: This is still in draft spec, browser support maybe very limited 
+        /// <para>Certificate Transparency is an open framework for monitoring and auditing the certificates issued by Certificate Authorities in near real-time. By requiring a CA to log all certificates they generate, site owners can quickly identify mis-issued certificates and it becomes much easier to detect a rogue CA. <see href="https://scotthelme.co.uk/a-new-security-header-expect-ct/"/></para>
+        /// </summary>
+        /// <param name="app"></param>
+        /// <param name="maxAge"> specifies the number of seconds that the browser should cache and apply the received policy for, whether enforced or report-only.</param>
+        /// <param name="reportUri"> specifies where the browser should send reports if it does not receive valid CT information. This is specified as an absolute URI.</param>
+        /// <param name="enforce">controls whether the browser should enforce the policy or treat it as report-only mode. The directive has no value so you simply include it or not depending on whether or not you want the browser to enforce the policy or just report on it.</param>
+        /// <returns></returns>
+        public static IApplicationBuilder UseCertificateTransparency(this IApplicationBuilder app, ulong maxAge, string reportUri, bool enforce = false) => app.UseMiddleware<ExpectCt>(maxAge, reportUri, enforce);
+
+        /// <summary>
         /// change or remove the server header.
         /// </summary>
         /// <param name="app"></param>

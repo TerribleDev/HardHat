@@ -3,19 +3,18 @@
   <PropertyGroup>
     <Description>.Net core Middleware, Add various headers to help secure your site. Disable XSS attacks with Content Security Policies, and make sure browsers do not mime sniff</Description>
     <Authors>Tommy Parnell</Authors>
-    <TargetFramework>netstandard1.6</TargetFramework>
+    <TargetFramework>netstandard2.0</TargetFramework>
     <AssemblyName>HardHat</AssemblyName>
     <PackageId>HardHat</PackageId>
     <PackageTags>xss;clickjack;clickjacking;security;.net core;Middleware;core;Content Security Policy;CSP</PackageTags>
     <PackageIconUrl>https://media.githubusercontent.com/media/TerribleDev/HardHat/master/Hat.png</PackageIconUrl>
     <PackageProjectUrl>https://github.com/TerribleDev/HardHat</PackageProjectUrl>
     <PackageLicenseUrl>https://opensource.org/licenses/MIT</PackageLicenseUrl>
-    <PackageTargetFallback>$(PackageTargetFallback);dnxcore50</PackageTargetFallback>
     <SourceLinkServerType>GitHub</SourceLinkServerType>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.Http.Abstractions" Version="1.0.2" />
+    <PackageReference Include="Microsoft.AspNetCore.Http.Abstractions" Version="2.1.1" />
     <PackageReference Include="SourceLink.Create.CommandLine" Version="2.4.0" PrivateAssets="All" /> 
   </ItemGroup>
 

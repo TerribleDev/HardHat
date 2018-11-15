@@ -14,7 +14,7 @@ build_script:
           dotnet pack src\HardHat\HardHat.csproj --configuration Release --output ..\..\output /p:Version=0.0.1-build-$env:APPVEYOR_BUILD_NUMBER
         }
 test_script:
-- ps: dotnet test src\HardHat.UnitTests\HardHat.UnitTests.csproj
+- ps: dotnet test src\HardHat.UnitTests\HardHat.UnitTests.csproj /p:CollectCoverage=true /p:CoverletOutputFormat=opencover
 artifacts:
 - path: output\**.nupkg
 deploy:

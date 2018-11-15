@@ -52,6 +52,7 @@
             internal const string FormAction = "form-action";
             internal const string FrameAncestors = "frame-ancestors";
             internal const string PluginTypes = "plugin-types";
+            internal const string UpgradeInsecureRequests = "upgrade-insecure-requests";
         }
     }
 }

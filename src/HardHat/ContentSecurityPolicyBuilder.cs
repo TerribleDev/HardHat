@@ -204,6 +204,11 @@ namespace HardHat
             Policy.Sandbox = sandboxOption ?? throw new ArgumentNullException(nameof(sandboxOption));
             return this;
         }
+        public ContentSecurityPolicyBuilder WithUpgradeInsecureResponse(bool enable = true) 
+        {
+            Policy.UpgradeInsecureResponse = enable;
+            return this;
+        }
         public ContentSecurityPolicy BuildPolicy() => Policy;
 
     }

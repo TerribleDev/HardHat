@@ -13,6 +13,10 @@ namespace HardHat.Builders
             {
                 throw new ArgumentNullException(nameof(policy));
             }
+            if(policy.DefaultSrc.Count > 0 && policy.DefaultSrc.Contains(CSPConstants.None))
+            {
+                //todo throw exception in this case
+            }
             if (policy.DefaultSrc != null && policy.DefaultSrc.Count > 0)
             {
                 stringBuilder.Append(Constants.CSPDirectives.DefaultSrc);
@@ -90,6 +94,10 @@ namespace HardHat.Builders
             {
                 stringBuilder.Append(Constants.CSPDirectives.PluginTypes);
                 stringBuilder.Append($" {string.Join(" ", policy.PluginTypes)}; ");
+            }
+            if(policy.UpgradeInsecureResponse) 
+            {
+                stringBuilder.Append($"{Constants.CSPDirectives.UpgradeInsecureRequests}; ");
             }
             return stringBuilder.ToString().TrimEnd();
         }

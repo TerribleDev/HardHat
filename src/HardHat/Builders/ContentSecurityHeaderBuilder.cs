@@ -91,6 +91,10 @@ namespace HardHat.Builders
                 stringBuilder.Append(Constants.CSPDirectives.PluginTypes);
                 stringBuilder.Append($" {string.Join(" ", policy.PluginTypes)}; ");
             }
+            if(policy.UpgradeInsecureRequests)
+            {
+                stringBuilder.Append($"{Constants.CSPDirectives.UpgradeInsecureRequests}; ");
+            }
             return stringBuilder.ToString().TrimEnd();
         }
     }

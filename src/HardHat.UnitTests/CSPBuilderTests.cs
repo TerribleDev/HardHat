@@ -25,10 +25,11 @@ namespace HardHat.UnitTests
                 FormAction = new HashSet<string>() { "http://*.example.com" },
                 FrameAncestors = new HashSet<string>() { "http://*.example.com" },
                 PluginTypes = new HashSet<string>() { "http://*.example.com" },
-                Sandbox = SandboxOption.AllowPointerLock
+                Sandbox = SandboxOption.AllowPointerLock,
+                UpgradeInsecureRequests = true
 
             });
-            Assert.Equal<string>(@"default-src 'self' 'none' http://*.example.com; script-src http://*.example.com; style-src http://*.example.com; img-src http://*.example.com; connect-src http://*.example.com; font-src http://*.example.com; object-src http://*.example.com; media-src http://*.example.com; child-src http://*.example.com; form-action http://*.example.com; frame-ancestors http://*.example.com; sandbox allow-pointer-lock; plugin-types http://*.example.com;", builder);
+            Assert.Equal<string>(@"default-src 'self' 'none' http://*.example.com; script-src http://*.example.com; style-src http://*.example.com; img-src http://*.example.com; connect-src http://*.example.com; font-src http://*.example.com; object-src http://*.example.com; media-src http://*.example.com; child-src http://*.example.com; form-action http://*.example.com; frame-ancestors http://*.example.com; sandbox allow-pointer-lock; plugin-types http://*.example.com; upgrade-insecure-requests;", builder);
         }
 
         [Fact]

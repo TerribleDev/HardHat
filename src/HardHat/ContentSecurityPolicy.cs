@@ -68,5 +68,6 @@ namespace HardHat
         /// </summary>
         public bool OnlySendReport { get; set;  } = false;
 
+        public bool UpgradeInsecureRequests { get; set; } = false;
     }
 }

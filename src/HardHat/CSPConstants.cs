@@ -18,11 +18,11 @@ namespace HardHat
         /// <summary>
         /// Allows the use of inline resources, such as inline <script> elements, javascript: URLs, inline event handlers, and inline <style> elements. You must include the single quotes.
         /// </summary>
-        public const string UnsafeInline = "unsafe-inline";
+        public const string UnsafeInline = "'unsafe-inline'";
         /// <summary>
         /// Allows the use of eval() and similar methods for creating code from strings. You must include the single quotes.
         /// </summary>
-        public const string UnsafeEval = "unsafe-eval";
+        public const string UnsafeEval = "'unsafe-eval'";
         /// <summary>
         /// Refers to the empty set; that is, no URLs match. The single quotes are required.
         /// </summary>
@@ -30,7 +30,7 @@ namespace HardHat
         /// <summary>
         /// The strict-dynamic source expression specifies that the trust explicitly given to a script present in the markup, by accompanying it with a nonce or a hash, shall be propagated to all the scripts loaded by that root script. At the same time, any whitelist or source expressions such as 'self' or 'unsafe-inline' will be ignored.
         /// </summary>
-        public const string StrictDynamic = "strict-dynamic";
+        public const string StrictDynamic = "'strict-dynamic'";
         /// <summary>
         /// A whitelist for specific inline scripts using a cryptographic nonce (number used once). The server must generate a unique nonce value each time it transmits a policy. It is critical to provide an unguessable nonce, as bypassing a resource’s policy is otherwise trivial. See unsafe inline script for an example.
         /// </summary>
